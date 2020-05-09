@@ -1,3 +1,7 @@
+<?php
+    include 'functions.php';
+?>
+
 <!doctype html>
 <html class="no-js" lang="zxx">
 
@@ -157,7 +161,7 @@
     </div>
     <!--/ service_area  -->
 
-   
+
 
 
     <!-- about  -->
@@ -491,7 +495,9 @@
                         <p class="copy_right text-center">
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                             Copyright &copy;
-                            <script>document.write(new Date().getFullYear());</script> @Essie</a>
+                            <script>
+                                document.write(new Date().getFullYear());
+                            </script> @Essie</a>
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </p>
                     </div>
