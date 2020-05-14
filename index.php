@@ -80,17 +80,6 @@ function sendMessage($post)
                                     <ul id="navigation">
                                         <li><a class="active" href="./">home</a></li>
                                         <li><a href="#features">Features</a></li>
-                                        <!-- <li><a href="#">blog <i class="ti-angle-down"></i></a>
-                                            <ul class="submenu">
-                                                <li><a href="blog.html">blog</a></li>
-                                                <li><a href="single-blog.html">single-blog</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">pages <i class="ti-angle-down"></i></a>
-                                            <ul class="submenu">
-                                                <li><a href="elements.html">elements</a></li>
-                                            </ul>
-                                        </li> -->
                                         <li><a href="#contact">Contact</a></li>
                                     </ul>
                                 </nav>
@@ -99,7 +88,7 @@ function sendMessage($post)
                         <div class="col-xl-3 col-lg-3 d-none d-lg-block">
                             <div class="Appointment">
                                 <div class="book_btn d-none d-lg-block">
-                                    <a href="#">Download</a>
+                                    <a href="<?php echo $download_url; ?>" download>Download</a>
                                 </div>
                             </div>
                         </div>
@@ -119,18 +108,18 @@ function sendMessage($post)
         <div class="single_slider  d-flex align-items-center slider_bg_1">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-xl-7 col-md-6">
-                        <div class="slider_text ">
+                    <div class="col-xl-5 col-md-5 mt-3">
+                        <div class="slider_text mt-5 ">
                             <h3 class="wow fadeInDown" data-wow-duration="1s" data-wow-delay=".1s">Covid-19 updates App
-                                gives you latest updates about corona virus
+                                gives you latest updates about coronavirus
                             </h3>
                             <!-- <p class="wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".1s">Get more users to promote your app with this template</p> -->
-                            <div class="video_service_btn wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".1s">
-                                <a href="#" class="boxed-btn3">Get Started Now</a>
+                            <div class="wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".1s">
+                                <a href="<?php echo $download_url; ?>" download class="boxed-btn3">Download</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-5 col-md-6">
+                    <div class="col-xl-5 col-md-7">
                         <div class="phone_thumb wow fadeInDown" data-wow-duration="1.1s" data-wow-delay=".2s">
                             <img src="img/ilstrator/covid-dashboard.png" alt="">
                         </div>
@@ -146,8 +135,8 @@ function sendMessage($post)
             <div class="row">
                 <div class="col-xl-12">
                     <div class="section_title text-center  wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".3s">
-                        <h3>Save your time to <br>
-                            using Covid-19 Updates App</h3>
+                        <h3>Stay updated with the <br>
+                            latest Covid-19 Updates</h3>
                     </div>
                 </div>
             </div>
@@ -203,7 +192,7 @@ function sendMessage($post)
                                 Download now to get all the updates.
                             </p>
                             <div class="about_btn">
-                                <a class="boxed-btn4" href="#">Download Now</a>
+                                <a class="boxed-btn4" href="<?php echo $download_url; ?>" download>Download Now</a>
                             </div>
                         </div>
                     </div>
@@ -215,13 +204,13 @@ function sendMessage($post)
                 </div>
             </div>
             <div class="features_main_wrap">
-                <div class="row  align-items-center">
-                    <div class="col-xl-5 col-lg-5 offset-xl-1 offset-lg-1 col-md-6">
+                <div class="row justify-content-between">
+                    <div class="col-xl-5 col-lg-5 col-md-7">
                         <div class="about_image wow fadeInLeft" data-wow-duration=".4s" data-wow-delay=".3s">
                             <img src="img/ilstrator/covid-list.png" alt="">
                         </div>
                     </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6">
+                    <div class="col-xl-5 col-lg-5 col-md-5">
                         <div class="features_info">
                             <h3 class="wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".3s">Easy setup and <br>
                                 management</h3>
@@ -238,7 +227,7 @@ function sendMessage($post)
                             </ul>
 
                             <div class="about_btn wow fadeInUp" data-wow-duration=".10s" data-wow-delay=".8s">
-                                <a class="boxed-btn4" href="#">Download Now</a>
+                                <a class="boxed-btn4" href="<?php echo $download_url; ?>" download>Download Now</a>
                             </div>
                         </div>
                     </div>
@@ -252,13 +241,13 @@ function sendMessage($post)
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-xl-7 col-md-12 col-lg-6">
-                    <h3 class="wow fadeInDown" data-wow-duration="1s" data-wow-delay=".1s">Get started from now <br>
+                    <h3 class="wow fadeInDown" data-wow-duration="1s" data-wow-delay=".1s">Get started now <br>
                         and get all the updates during this pandemic.</h3>
                 </div>
                 <div class="col-xl-5 col-md-12 col-lg-6">
                     <div class="app_download wow fadeInDown" data-wow-duration="1s" data-wow-delay=".1s">
                         <div class="about_btn wow fadeInUp" data-wow-duration=".10s" data-wow-delay=".8s">
-                            <a class="boxed-btn4" href="#">Download Now</a>
+                            <a class="boxed-btn4" href="<?php echo $download_url; ?>" download>Download Now</a>
                         </div>
 
                     </div>
@@ -275,7 +264,7 @@ function sendMessage($post)
                 <div class="col-12">
                     <h2 class="contact-title">Get in Touch</h2>
                 </div>
-                <div class="col-lg-8">
+                <div class="col-lg-7 col-md-7">
                     <form class="form-contact contact_form" action="" method="post">
                         <div class="row">
                             <div class="col-sm-6">
@@ -305,6 +294,16 @@ function sendMessage($post)
                         </div>
                     </form>
                 </div>
+                <div class="col-xl-5 col-lg-5 col-md-5">
+                    <div class="features_info">
+                        <h3 class="wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".3s">Stay Home <br></h3>
+
+                        <ul>
+                            <li class="wow fadeInUp" data-wow-duration=".6s" data-wow-delay=".4s">Stay Safe</li>
+                            <li class="wow fadeInUp" data-wow-duration=".7s" data-wow-delay=".5s">Help stop the spread</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -314,7 +313,7 @@ function sendMessage($post)
         <div class="footer_top">
             <div class="container">
                 <div class="row">
-                    <div class="col-xl-4 col-md-6 col-lg-4">
+                    <div class="col-xl-2 col-md-4 col-lg-2">
                         <div class="footer_widget">
                             <div class="footer_logo">
                                 <a href="#">
@@ -322,39 +321,20 @@ function sendMessage($post)
                                 </a>
                             </div>
                             <p>
-                                Poviding better statistics for you.
+                                Poviding the statistics for you.
                             </p>
-                            <div class="socail_links">
-                                <ul>
-                                    <li>
-                                        <a href="#">
-                                            <i class="ti-facebook"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="ti-twitter-alt "></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-instagram"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
 
                         </div>
                     </div>
-                    <div class="col-xl-2 offset-xl-1 col-md-6 col-lg-3">
+                    <div class="col-xl-4 offset-xl-1 col-md-6 col-lg-4">
                         <div class="footer_widget">
                             <h3 class="footer_title">
                                 Services
                             </h3>
                             <ul>
-                                <li><a href="#">Covid-19 Updates per country</a></li>
-                                <li><a href="#">Number of cases,deaths and recoveries</a></li>
-                                <li><a href="#">Control measures as recommended by WHO</a></li>
+                                <li><a href="#!">Covid-19 Updates per country</a></li>
+                                <li><a href="#!">Number of cases per country</a></li>
+                                <li><a href="#!">Control measures as recommended by W.H.O</a></li>
 
                             </ul>
 
@@ -367,9 +347,9 @@ function sendMessage($post)
                             </h3>
                             <ul>
 
-                                <li><a href="https://documenter.getpostman.com/view/10808728/SzS8rjbc?version=latest">Data source</a></li>
-                                <li><a href="https://www.who.int/">W.H.O</a></li>
-                                <li><a href="#">Contact</a></li>
+                                <li><a href="https://documenter.getpostman.com/view/10808728/SzS8rjbc?version=latest" target="_blank">Data source</a></li>
+                                <li><a href="https://www.who.int/" target="_blank">W.H.O</a></li>
+                                <li><a href="#contact">Contact</a></li>
                             </ul>
                         </div>
                     </div>
@@ -381,7 +361,7 @@ function sendMessage($post)
                             <ul>
                                 <li>
                                     <div class="about_btn wow fadeInUp" data-wow-duration=".10s" data-wow-delay=".8s">
-                                        <a class="boxed-btn4" href="/app/test.apk" download>Download Now</a>
+                                        <a class="boxed-btn4" href="<?php echo $download_url; ?>" download>Download Now</a>
                                     </div>
                                 </li>
                             </ul>

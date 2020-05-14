@@ -1,7 +1,9 @@
 <?php
 
 
-$maintenance = true;
+$maintenance = false;
+
+$download_url = "app/covid-19.apk";
 
 if($maintenance){
     echo "Coming soon...";
