@@ -1,7 +1,7 @@
 <?php
 
 
-$maintenance = false;
+$maintenance = true;
 
 if($maintenance){
     echo "Coming soon...";
