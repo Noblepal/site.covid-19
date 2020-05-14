@@ -1329,7 +1329,7 @@ h3 {
 
 /* line 4, ../../Arafath/CL/CL October/214. App Landing Page/HTML/scss/_slider.scss */
 .slider_bg_2 {
-  background-image: url(../img/banner/banner2.png);
+  background-image: url(../img/banner/banner.svg);
 }
 
 /* line 8, ../../Arafath/CL/CL October/214. App Landing Page/HTML/scss/_slider.scss */
@@ -1754,7 +1754,7 @@ h3 {
 
 /* line 168, ../../Arafath/CL/CL October/214. App Landing Page/HTML/scss/_features.scss */
 .productivity_area {
-  background-image: url(../img/banner/product.png);
+  background-image: url(../img/banner/product.svg);
   background-size: cover;
   background-position: center center;
   padding: 164px 0;

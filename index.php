@@ -1,5 +1,30 @@
 <?php
-    include 'functions.php';
+include 'functions.php';
+
+if (isset($_POST['sendMessage'])) {
+    sendMessage($_POST);
+}
+
+function sendMessage($post)
+{
+    global $con;
+    extract($post);
+    $stmt = $con->prepare("INSERT INTO feedback (name, email, subject, message) VALUES (?,?,?,?)");
+    $stmt->bind_param("ssss", $name, $email, $subject, $message);
+
+    if ($stmt->execute()) {
+        $stmt->store_result();
+        if ($stmt->affected_rows > 0) {
+            header('location: index.php?success=1&message=Your message has been received');
+        } else {
+            header('location: index.php?success=1&message=Failed: ' . $stmt->error);
+        }
+    } else {
+        echo "ERROR: " . $stmt->error;
+    }
+}
+
+
 ?>
 
 <!doctype html>
@@ -53,10 +78,9 @@
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a class="active" href="index.html">home</a></li>
-                                        <li><a href="#features_area">Features</a></li>
-                                        <!-- <li><a href="Pricing.html">Pricing</a></li>
-                                        <li><a href="#">blog <i class="ti-angle-down"></i></a>
+                                        <li><a class="active" href="./">home</a></li>
+                                        <li><a href="#features">Features</a></li>
+                                        <!-- <li><a href="#">blog <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
                                                 <li><a href="blog.html">blog</a></li>
                                                 <li><a href="single-blog.html">single-blog</a></li>
@@ -67,7 +91,7 @@
                                                 <li><a href="elements.html">elements</a></li>
                                             </ul>
                                         </li> -->
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="#contact">Contact</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -165,6 +189,7 @@
 
 
     <!-- about  -->
+    <a name="features"></a>
     <div class="features_area ">
         <div class="container">
             <div class="features_main_wrap">
@@ -207,8 +232,9 @@
                                     what you need on the go. </li>
                                 <li class="wow fadeInUp" data-wow-duration=".8s" data-wow-delay=".6s"> User friendly
                                     interface </li>
-                                <!-- <li class="wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".7s"> Ensuring security
-                                    of your data</li> -->
+                                <li class="wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".7s">
+                                    Creating awareness of Covid-19
+                                </li>
                             </ul>
 
                             <div class="about_btn wow fadeInUp" data-wow-duration=".10s" data-wow-delay=".8s">
@@ -220,170 +246,6 @@
             </div>
         </div>
     </div>
-    <!--/ about  -->
-    <!-- testmonial_area  -->
-    <!-- <div class="testmonial_area">
-        <div class="container">
-            <div class="col-xl-12">
-                <div class="testmonial_active owl-carousel">
-                    <div class="single_testmonial text-center wow fadeInUp" data-wow-duration=".5s"
-                        data-wow-delay=".3s">
-                        <div class="section_title">
-                            <h3>Review from our <br>
-                                regular users</h3>
-                        </div>
-                        <p>
-
-                            The exprience of using this app was waesome. I especially like its user interface
-                        </p>
-                        <div class="rating_author">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <span>
-                                - Faith
-                            </span>
-                        </div>
-                    </div>
-                    <div class="single_testmonial text-center wow fadeInUp" data-wow-duration=".5s"
-                        data-wow-delay=".3s">
-                        <div class="section_title">
-                            <h3>Review from our <br>
-                                regular users</h3>
-                        </div>
-                        <p>
-                            So far this app has proved to be the best in provinding realtime updates <br>
-
-                        </p>
-                        <div class="rating_author">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <span>
-                                - Noble
-                            </span>
-                        </div>
-                    </div>
-                    <div class="single_testmonial text-center wow fadeInUp" data-wow-duration=".5s"
-                        data-wow-delay=".3s">
-                        <div class="section_title">
-                            <h3>Review from our <br>
-                                regular users</h3>
-                        </div>
-                        <p>
-                            The exprience of using this app was waesome. I especially like its user interface.
-                        </p>
-                        <div class="rating_author">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <span>
-                                - Nice
-                            </span>
-                        </div>
-                    </div>
-                    <div class="single_testmonial text-center wow fadeInUp" data-wow-duration=".5s"
-                        data-wow-delay=".3s">
-                        <div class="section_title">
-                            <h3>Review from our <br>
-                                regular users</h3>
-                        </div>
-                        <p>
-
-                            The exprience of using this app was waesome. I especially like its user interface
-                        </p>
-                        <div class="rating_author">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <span>
-                                - Smile
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!--/ testmonial_area  -->
-
-    <!-- prising_area  -->
-    <!-- <div class="prising_area">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="section_title text-center wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".5s">
-                        <h3>Unlock full Power</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit sed do eiusmod <br> tempor incididunt.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row no-gutters align-items-center">
-                <div class="col-xl-4 col-md-4">
-                    <div class="single_prising text-center wow fadeInUp" data-wow-duration=".7s" data-wow-delay=".8s">
-                        <div class="prising_header d-flex justify-content-between">
-                            <h3>Basic</h3>
-                            <span>$06</span>
-                        </div>
-                        <ul>
-                            <li>One User</li>
-                            <li>1000 ui elements</li>
-                            <li>Webmail Support</li>
-                            <li>100GB Cloud Storage</li>
-                        </ul>
-                        <div class="prising_bottom">
-                            <a href="#" class="get_now prising_btn">Get Now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-4">
-                    <div class="single_prising text-center wow fadeInUp" data-wow-duration=".6s" data-wow-delay=".6s">
-                        <div class="prising_header d-flex justify-content-between pink_header">
-                            <h3>Team</h3>
-                            <span>$06</span>
-                        </div>
-                        <ul>
-                            <li>One User</li>
-                            <li>1000 ui elements</li>
-                            <li>Webmail Support</li>
-                            <li>100GB Cloud Storage</li>
-                            <li>Unlimited Users Limit</li>
-                        </ul>
-                        <div class="prising_bottom">
-                            <a href="#" class="get_now prising_btn">Get Now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-4">
-                    <div class="single_prising text-center wow fadeInUp" data-wow-duration=".7s" data-wow-delay=".8s">
-                        <div class="prising_header d-flex justify-content-between green_header">
-                            <h3>Business</h3>
-                            <span>$06</span>
-                        </div>
-                        <ul>
-                            <li>One User</li>
-                            <li>All the updates</li>
-                            <li>few ads</li>
-                            <li>10331</li>
-                        </ul>
-                        <div class="prising_bottom">
-                            <a href="#" class="get_now prising_btn">Get Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    / prising_area  -->
 
     <!-- productivity_area  -->
     <div class="productivity_area">
@@ -405,6 +267,47 @@
         </div>
     </div>
     <!--/ productivity_area  -->
+
+    <a name="contact"></a>
+    <div class="features_area mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="contact-title">Get in Touch</h2>
+                </div>
+                <div class="col-lg-8">
+                    <form class="form-contact contact_form" action="" method="post">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input class="form-control valid" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder="Enter your name" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input class="form-control valid" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder="Email" required>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <input class="form-control" name="subject" id="subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'" placeholder="Enter Subject" required>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder="Enter message here..." required></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group mt-3">
+                            <input type="submit" name="sendMessage" class="button button-contactForm boxed-btn" value="Send" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- footer start -->
     <footer class="footer">
@@ -497,7 +400,7 @@
                             Copyright &copy;
                             <script>
                                 document.write(new Date().getFullYear());
-                            </script> @Essie</a>
+                            </script> @Covid-19 Updates App</a>
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </p>
                     </div>
